@@ -1,3 +1,21 @@
-<p>
-  Welcome!
+<h1>I Heart Shoes!</h1>
+<br><br>
+  <h3><a href="/shoes/new">Add Shoes</a></h3>
 </p>
+
+<table border="black">
+  <thead>
+  <tr class="title">
+    <td>Name</td>
+    <td>Size</td>
+  </tr>
+  </thead>
+  <tbody>
+  <% shoes.each do |shoes| %>
+    <tr>
+      <td><%= shoes[:name] %></td>
+      <td><%= shoes[:size] %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
