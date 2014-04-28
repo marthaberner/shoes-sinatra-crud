@@ -26,4 +26,9 @@ class Application < Sinatra::Application
 
     redirect '/'
   end
+
+  get '/shoes/:id' do
+    shoes = @db[id: params[:id]]
+    erb  :'/shoes/show', locals: {shoes: shoes}
+  end
 end

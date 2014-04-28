@@ -13,7 +13,7 @@
   <tbody>
   <% shoes.each do |shoes| %>
     <tr>
-      <td><%= shoes[:name] %></td>
+      <td><a href="/shoes/<%= shoes[:id] %>"><%= shoes[:name] %></a></td>
       <td><%= shoes[:size] %></td>
     </tr>
   <% end %>
