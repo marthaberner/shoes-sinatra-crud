@@ -28,4 +28,25 @@ feature 'Shoes' do
     expect(page).to have_content 'Nike'
     expect(page).to have_content '8'
   end
+
+  scenario 'User can update shoe details' do
+    visit '/'
+    click_link 'Add Shoes'
+    fill_in 'name', with: 'Adidas'
+    fill_in 'size', with: '12'
+    click_on 'Add Shoe'
+    click_link 'Adidas'
+
+    click_link 'Edit'
+    fill_in 'name', with: 'Toms'
+    fill_in 'size', with: '7'
+    click_on 'Update Shoe'
+
+
+    expect(page).to have_content 'Toms'
+    expect(page).to have_content '7'
+
+    expect(page).to have_no_content 'Adidas'
+    expect(page).to have_no_content '12'
+  end
 end

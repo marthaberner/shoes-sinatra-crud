@@ -29,6 +29,18 @@ class Application < Sinatra::Application
 
   get '/shoes/:id' do
     shoes = @db[id: params[:id]]
-    erb  :'/shoes/show', locals: {shoes: shoes}
+    erb :'/shoes/show', locals: {shoes: shoes}
+  end
+
+  get '/shoes/:id/edit' do
+    shoes = @db[id: params[:id]]
+    erb :'/shoes/edit', locals: {shoes: shoes}
+  end
+
+  put '/shoes/:id' do
+    id = params[:id]
+    @db.where(id: id).update(name: params[:name], size: params[:size])
+
+    redirect '/'
   end
 end

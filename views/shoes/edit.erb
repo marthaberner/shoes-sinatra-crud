@@ -1,0 +1,7 @@
+<div id="new"><form action="/shoes/<%= shoes[:id] %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <input type="text" name="name" value="<%= shoes[:name] %>">
+  <input type="text" name="size" value="<%= shoes[:size] %>" >
+  <input type="submit" value="Update Shoe">
+</form>
+</div>
