@@ -43,4 +43,11 @@ class Application < Sinatra::Application
 
     redirect '/'
   end
+
+  delete '/shoes/:id' do
+    id = params[:id]
+    @db.where(id: id).delete
+
+    redirect '/'
+  end
 end

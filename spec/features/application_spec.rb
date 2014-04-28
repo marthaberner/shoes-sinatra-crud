@@ -42,9 +42,25 @@ feature 'Shoes' do
     fill_in 'size', with: '7'
     click_on 'Update Shoe'
 
-
     expect(page).to have_content 'Toms'
     expect(page).to have_content '7'
+
+    expect(page).to have_no_content 'Adidas'
+    expect(page).to have_no_content '12'
+  end
+
+  scenario 'User can delete shoes' do
+    visit '/'
+    click_link 'Add Shoes'
+    fill_in 'name', with: 'Adidas'
+    fill_in 'size', with: '12'
+    click_on 'Add Shoe'
+    click_link 'Adidas'
+
+    click_on 'Delete'
+
+
+    expect(page).to have_content 'I Heart Shoes!  '
 
     expect(page).to have_no_content 'Adidas'
     expect(page).to have_no_content '12'
